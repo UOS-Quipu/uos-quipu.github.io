@@ -2,17 +2,12 @@
 layout: default
 ---
 
-<style>
-  .blueCurtain {
-    display: none;
-  }
-</style>
-
 <article class="post">
   <h1>{{ page.title }}</h1>
 
-  <div class="date">
-    {{ page.date | date: "%B %e, %Y" }}
+  <div class="meta">
+      by {{ page.author }}, {{ page.date | date: "%B %e, %Y" }}
+      <img src='https://avatars.githubusercontent.com/{{ site.data.members[page.author] }}' class='profile'>
   </div>
 
   <div class="entry">
@@ -25,3 +20,27 @@ layout: default
 <script type="text/javascript" async
   src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
 </script>
+
+<style>
+.blueCurtain .bg {
+  opacity: 0;
+}
+
+
+.blueCurtain > div::before {
+  z-index: -2;
+}
+
+.blueCurtain > div::after {
+  content: "";
+  position: absolute;
+  z-index: -3;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url({{ page.cover }});
+  background-size: cover;
+  background-position: center;
+}
+</style>
