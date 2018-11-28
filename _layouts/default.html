@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Quipu {% if page.title %}{{ page.title }} – {% endif %}{{ site.name }}</title>
+
+    {% include meta.html %}
+
+    <!--[if lt IE 9]>
+      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/style.css" />
+    <link rel="alternate" type="application/rss+xml" title="{{ site.name }}" href="{{ site.baseurl }}/feed.xml" />
+
+    <!-- Created with Jekyll Now - http://github.com/barryclark/jekyll-now -->
+  </head>
+
+  <body>
+    <div class='headerWrapper'>
+      <header class="header">
+        <div class="siteName">
+          <a href="{{ site.baseurl }}/"><img src='{{ site.url }}/images/for-layout/logo.png'> {{ site.name }}</a>
+          <!-- <p class="site-description">{{ site.description }}</p> -->
+        </div>
+        <nav>
+          <a>POSTS</a>
+          <a>SLIDES</a>
+          <a>ABOUT</a>
+        </nav>
+      </header>
+      <div class='blueCurtain'>
+        <div class="relative">
+          <img src='{{ site.url }}/images/for-layout/main-bg.jpg' class='bg'>
+        </div>
+      </div>
+    </div>
+
+    <article id="main" role="main" class="container">
+      {{ content }}
+    </article>
+
+    <div class="footerWrapper">
+      <footer class="footer">
+        <div class='social'>
+          {% include socials.html %}
+        </div>
+        <div class='info'>
+            <p>© Quipu, All Rights Reserved. Powered by GitHub Pages.</p>
+        </div>
+      </footer>
+    </div>
+
+    {% include analytics.html %}
+  </body>
+</html>

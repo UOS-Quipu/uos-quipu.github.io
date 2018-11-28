@@ -1,0 +1,322 @@
+---
+---
+
+@import "reset";
+@import "variables";
+
+// fonts
+@import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css);
+
+html {
+  font-size: 100%;
+}
+
+body {
+  background: $white;
+  font: 14px/1.7 "Spoqa Han Sans";
+  color: $darkGrey;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: $darkerGrey;
+  font-weight: bold;
+
+  line-height: 1.7;
+  margin: 1em 0 15px;
+  padding: 0;
+
+  @include mobile {
+    line-height: 1.4;
+  }
+}
+
+h1 {
+  font-size: 1.67em;
+  a {
+    color: inherit;
+  }
+}
+
+h2 {
+  font-size: 1.33em;
+}
+
+h3 {
+  font-size: 1.1em;
+}
+
+h4 {
+  font-size: 1em;
+  color: $grey;
+}
+
+p {
+  margin: 15px 0;
+}
+
+a {
+  color: $blue;
+  text-decoration: none;
+  cursor: pointer;
+
+  &:hover,
+  &:active {
+    color: $blue;
+  }
+}
+
+ul,
+ol {
+  margin: 15px 0;
+  padding-left: 30px;
+}
+
+ul {
+  list-style-type: disc;
+}
+
+ol {
+  list-style-type: decimal;
+}
+
+ol ul,
+ul ol,
+ul ul,
+ol ol {
+  margin: 0;
+}
+
+ul ul,
+ol ul {
+  list-style-type: circle;
+}
+
+em,
+i {
+  font-style: italic;
+}
+
+strong,
+b {
+  font-weight: bold;
+}
+
+img {
+  max-width: 100%;
+}
+
+// Fixes images in popup boxes from Google Translate
+.gmnoprint img {
+  max-width: none;
+}
+
+.date {
+  font-style: italic;
+  color: $grey;
+}
+
+// Specify the color of the selection
+::-moz-selection {
+  color: $black;
+  background: $lightGrey;
+}
+::selection {
+  color: $black;
+  background: $lightGrey;
+}
+
+// Nicolas Gallagher's micro clearfix hack
+// http://nicolasgallagher.com/micro-clearfix-hack/
+.clearfix:before,
+.clearfix:after {
+  content: " ";
+  display: table;
+}
+
+.clearfix:after {
+  clear: both;
+}
+
+// absolute 푸려고 만듬
+.relative {
+  position: relative;
+}
+
+// ==============
+// LAYOUT
+// ==============
+
+.headerWrapper {
+  $headerHeight: 60px;
+  header {
+    display: flex;
+    flex-direction: row;
+    padding: 5px 20px;
+    height: $headerHeight;
+
+    @include mobile {
+      display: inherit;
+      height: auto;
+      text-align: center;
+    }
+
+    .siteName {
+      flex-grow: 1;
+
+      a {
+        color: $darkerGrey !important;
+        line-height: $headerHeight - 10px;
+        letter-spacing: 0.5px;
+        font-weight: 300;
+        font-size: 18px;
+        img {
+          vertical-align: -8px;
+          height: 30px;
+        }
+      }
+    }
+
+    nav {
+      line-height: $headerHeight - 10px;
+
+      @include mobile {
+        line-height: 1.5em;
+        margin: 10px 0;
+        font-size: 0.9em;
+      }
+
+      > a {
+        font-weight: 300;
+        color: $darkerGrey !important;
+        letter-spacing: 1px;
+        margin: 0px 4px;
+        padding: 3px 4px;
+      }
+    }
+  }
+
+  .blueCurtain {
+    font-size: 0;
+
+    > div {
+      img.bg {
+        width: 100%;
+        height: 54vw;
+        object-fit: cover;
+      }
+
+      &::before {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: rgba(material-color("blue-grey", "500"), 0.3);
+      }
+    }
+  }
+}
+
+article#main {
+  padding: 10px 20px;
+
+  max-width: 800px;
+  margin: auto;
+  overflow: show;
+
+  .posts {
+    overflow-x: scroll;
+    padding-bottom: 30px;
+    white-space: nowrap;
+    margin: 0 -20px;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    .post {
+      margin: 0 10px;
+      white-space: normal;
+      display: inline-block;
+      width: 250px;
+      text-align: left;
+      border-radius: 5px;
+      overflow: hidden;
+      -moz-box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+      -webkit-box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+
+      .cover {
+        width: 100%;
+        height: 170px;
+        object-fit: cover;
+      }
+
+      .profile {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        box-sizing: border-box;
+        font-size: 0;
+        border: 2px solid #fff;
+        object-fit: cover;
+        margin: -37px 0 0 20px;
+      }
+
+      .content {
+        padding: 0 20px 10px 20px;
+        border-bottom: 1px solid material-color("blue-grey", "100");
+
+        h1 {
+          margin: 5px 0 10px 0;
+          font-size: 1.5em;
+        }
+
+        div.pre-con {
+          font-size: 0.9em !important;
+          height: 90px;
+          overflow:hidden;
+        }
+
+        a.read-more {
+          font-size: 0.8em;
+        }
+      }
+
+      .meta {
+        font-size: 0.7em;
+        font-style: italic;
+        padding: 5px 20px;
+      }
+    }
+  }
+}
+
+.footerWrapper {
+  background-color: material-color("blue-grey", "50");
+  padding: 20px 40px;
+  color: #000 !important;
+  footer {
+    text-align: center;
+
+    > .info {
+      p {
+        margin: 0;
+        font-size: 0.8em;
+        line-height: 30px;
+      }
+    }
+  }
+}
+
+// =============
+// imports
+// =============
+@import "svg-icons";

@@ -1,0 +1,17 @@
+@import "colors";
+
+$blue: material-color('light-blue');
+
+$black: #000;
+$darkerGrey: material-color('blue-grey', '1000');
+$darkGrey: material-color('blue-grey', '800');
+$grey: material-color('blue-grey');
+$lightGrey: material-color('blue-grey', '50');
+$white: #fff;
+
+// Mobile breakpoints
+@mixin mobile {
+  @media screen and (max-width: 640px) {
+    @content;
+  }
+}

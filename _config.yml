@@ -1,0 +1,45 @@
+name: 블로그
+description: >-
+  서울시립대학교 중앙동아리 소속의 IT 학술 동아리 Quipu입니다.
+
+permalink: /:categories/:title/
+baseurl: ""
+url: ""
+
+social:
+  email: 
+  facebook: groups/125285924255086
+  github: uos-quipu
+  rss: .
+
+defaults:
+  - scope:
+      path: "_posts/posts"
+    values:
+      category: [posts]
+  - scope:
+      path: "_posts/slides"
+    values:
+      category: [slides]
+
+google_analytics:
+paginate: 10
+
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    css_class: 'highlight'
+
+sass:
+  style: :expanded # You might prefer to minify using :compressed
+
+plugins:
+  - jekyll-feed
+  - jekyll-paginate
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - LICENSE
+  - README.md
