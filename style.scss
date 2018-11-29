@@ -237,6 +237,37 @@ article#main {
     padding-bottom: 30px;
     white-space: nowrap;
     margin: 0 -20px;
+    box-sizing: border-box;
+    text-align: center;
+
+    &.pint {
+      overflow: inherit;
+      white-space: normal;
+      margin: 0 auto;
+
+      .post {
+        margin: 5px;
+        width: 220px;
+
+        @include mobile {
+          width: calc(100% - 10px);
+          box-sizing: border-box;
+        }
+
+        .cover {
+          width: 100%;
+          height: 150px;
+          object-fit: cover;
+        }
+
+        .content {
+  
+          div.pre-con {
+            height: auto;
+          }
+        }  
+      }
+    }
 
     &::-webkit-scrollbar {
       display: none;
@@ -283,7 +314,7 @@ article#main {
         div.pre-con {
           font-size: 0.9em !important;
           height: 90px;
-          overflow:hidden;
+          overflow: hidden;
         }
 
         a.read-more {
