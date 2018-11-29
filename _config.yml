@@ -2,7 +2,7 @@ name: 블로그
 description: >-
   서울시립대학교 중앙동아리 소속의 IT 학술 동아리 Quipu입니다.
 
-permalink: /:categories/:title/
+permalink: /:year/:title/
 baseurl: ""
 url: ""
 
@@ -12,18 +12,9 @@ social:
   github: uos-quipu
   rss: .
 
-defaults:
-  - scope:
-      path: "_posts/posts"
-    values:
-      category: [posts]
-  - scope:
-      path: "_posts/slides"
-    values:
-      category: [slides]
-
 google_analytics:
-paginate: 10
+paginate: 12
+paginate_path: "/posts/:num/"
 
 kramdown:
   input: GFM

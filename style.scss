@@ -232,52 +232,18 @@ article#main {
   margin: auto;
   overflow: show;
 
-  .posts {
+  .posts.card {
     overflow-x: scroll;
     padding-bottom: 30px;
-    white-space: nowrap;
     margin: 0 -20px;
     box-sizing: border-box;
     text-align: center;
 
-    &.pint {
-      overflow: inherit;
-      white-space: normal;
-      margin: 0 auto;
-
-      .post {
-        margin: 5px;
-        width: 220px;
-
-        @include mobile {
-          width: calc(100% - 10px);
-          box-sizing: border-box;
-        }
-
-        .cover {
-          width: 100%;
-          height: 150px;
-          object-fit: cover;
-        }
-
-        .content {
-  
-          div.pre-con {
-            height: auto;
-          }
-        }  
-      }
-    }
-
-    &::-webkit-scrollbar {
-      display: none;
-    }
-
     .post {
-      margin: 0 10px;
+      margin: 5px;
       white-space: normal;
       display: inline-block;
-      width: 250px;
+      width: 230px;
       text-align: left;
       border-radius: 5px;
       overflow: hidden;
@@ -327,6 +293,50 @@ article#main {
         font-style: italic;
         padding: 5px 20px;
       }
+    }
+  }
+
+  .posts:not(.card) {
+    .post {
+      border-bottom: 1px solid #eee;
+      padding-bottom: 20px;
+
+      &:last-child {
+        border: none;
+      }
+
+      .title {
+        display: flex;
+
+        h1 {
+          flex-grow: 1;
+          vertical-align: middle;
+        }
+
+        .meta {
+          vertical-align: middle;
+          margin: 22px 0 0 0;
+          font-size: 0.9em;
+
+          .profile {
+            width: 35px;
+            height: 35px;
+          }
+        }
+      }
+      
+      .entry {
+        padding: 10px 0;
+      }
+    }
+  }
+
+  .pagination {
+    text-align: center;
+    padding-bottom: 20px;
+
+    a, span {
+      margin: 0 3px;
     }
   }
 }
